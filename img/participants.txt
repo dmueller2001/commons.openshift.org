@@ -48,4 +48,3 @@ Worldline,http://worldline.com/en-us/home.html,commons-logos/worldline.png
 Zabbix,http://www.zabbix.com,commons-logos/zabbix.png
 Zend,http://www.zend.com/,commons-logos/zend.png
 Zero Turnaround,http://zeroturnaround.com/,commons-logos/jrebel.png
-
