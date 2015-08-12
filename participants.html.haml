@@ -1,1 +1,155 @@
-text list of all participants
+
+---
+layout: base
+title: OpenShift Commons Participants Text Listing
+---
+%body.commons
+  #layout.layout-wide
+    / Header Section
+    %header.index_static
+      .nav_logo.animated.fadeIn
+        .container
+          .row
+            %nav.col-md-12
+              %ul#menu.sf-menu
+                %li 
+                  %a{:href => "#join"} Join Commons
+                %li
+                  %a{:href => "#colleagues"} Participants
+                %li 
+                  %a{:href => "#interests"} Interests
+                %li
+                  %a{:href => "briefings.html"} Events & Briefings
+                %li
+                  %a{:href => "quotes.html"} Supporting Quotes
+                %li
+                  %a{:href => "participants.html"} Text List of all Participants
+      %section.content_info
+        .bg_parallax.image_06_parallax
+          %section.opacy_bg_05.paddings
+            / Info Head Static
+            .container
+              .row
+                .col-md-12
+                  .logo.wow.fadeIn.delay
+                    %a{:href => "index.html", :title => "Back to Home"}
+                      %img.logo_img{:alt => "Logo", :src => "img/openshift_logo_horizontal_wht.svg", :style => "margin-bottom: 30px"}/
+                  %h1.animated.fadeInDown.delay
+                    OpenShift Commons
+                  %p.animated.fadeInUp.delay
+                    Where users, partners, customers, and contributors come together to collaborate and work together on OpenShift. 
+    / Info title
+    %section.content_info#join
+      #try.info_title.wow.fadeInDown
+        %i.fa.fa-users.right
+        .vertical_line
+          .circle_bottom
+        .info_vertical.animated
+          %h1
+            OpenShift
+            %span Commons
+        .padding_bottom
+          .container.wow.fadeInUp.animated
+            .row
+              .col-xs-12.col-sm-12.col-md-6.col-lg-6.lead
+                %p.text-left Commons builds connections and collaboration across OpenShift communities, projects and stakeholders. In doing so we'll enable the success of customers, users, partners, and contributors as we deepen our knowledge and experiences together.
+
+                %br
+                %p.text-left Our goals go beyond code contributions. Commons is a place for companies using OpenShift to accelerate its success and adoption. To do this we'll act as resources for each other, share best practices and provide a forum for peer-to-peer communication.
+              %h2 Join Now
+              / Form
+              = partial ('main_signup.html.haml')
+              / End Form
+    / End Info title
+    / End content info - Grey Section
+    %section.content_info#colleagues
+      / Info Resalt
+      .info_resalt.borders
+        .info_vertical
+          %h1
+            Commons
+            %span Participants
+        .container
+          / Partner list
+          %ul.participants
+            - File.open("img/participants.txt").readlines.each do |line|
+              - unless line.strip!.empty?
+                - img = line.split(',').map(&:chomp)
+                %li
+                  %a{:href => "#{img[1]}", :title => " #{img[0]}"}
+                    %img{:src => "img/#{img[2]}", :alt => " #{img[0]}"}
+          / End Partner list
+      / End Info Resalt
+    %section.content_info
+      / Info Resalt
+      .vertical_line
+        .circle_bottom
+      .container
+        .row
+          .col-md-12.simple-title
+            %h2
+              Supporting  
+              %span Quotes
+          / carousel-team-members
+          #carousel-team-members.col-md-12
+            - File.open("img/quotes.txt").readlines.each do |line|
+              - img = line.split(';').map(&:chomp)
+              .item-team
+                %img.logo{:src => "img/#{img[2]}", :alt => "#{img[0]}"}
+                .col-md-10
+                  %blockquote 
+                    #{img[3]}
+                %cite
+                  .text-right
+                    %a{:href => "#{img[4]}"} Read More
+                / End Item Team
+            / End carousel-team-members
+      / End Info Resalt
+    / End content info - Grey Section
+    / Info title
+    %section.content_info#interests
+      .info_resalt.borders
+        .row.info_title
+          .info_vertical
+            %h1
+              Find Your
+              %span Commonality
+            %p.text-left Being a part of an inclusive, open, and inviting community such as Commons means that you're part of the conversation. Our Special Interest Groups (SIG) are designed so that you can find everything you need in one place around a central topic.
+            .row
+              .paddings
+                .col-xs-12.col-sm-6.col-md-6.col-lg-6.wow.fadeInLeft
+                  %h2 
+                    %a{:href => "sig/Operations.html", :title => "Operations"} OpenShift Ops
+                    %p Discuss, develop and disseminate best practices for administrating, managing and operating OpenShift
+                .col-xs-12.col-sm-6.col-md-6.col-lg-6.wow.fadeInRight
+                  %h2 
+                    %a{:href => "sig/Openshiftv3.html", :title => "OpenShift v3"} OpenShift v3
+                    %p OpenShift v3 Migration Upgrade Roadmap Special Interest Group
+          %i.fa.fa-comments-o.right
+      / End Info title
+      / Info title
+    %section.content_info#join
+      #try.info_title.wow.fadeInUp
+        %i.fa.fa-compass.left
+        .vertical_line
+          .circle_bottom
+        .info_vertical.animated
+          %h1
+            Become a part of something
+            %span bigger
+          %p OpenShift Commons is open to all community participants: users, operators, enterprises, non-profits, educational institutions, partners, and service providers as well as other open source technology initiatives utilized under the hood or to extend the OpenShift platform.
+          %br
+          %ul
+            %li.text-left If you are an OpenShift Online or an OpenShift Enterprise  customer or have deployed OpenShift on premise or on a public cloud.
+
+            %li.text-left If you have contributed to the OpenShift Origin project and want to connect with your peers and end users.
+
+            %li.text-left If you simply want to stay up-to-date on the roadmap and best practices for using, deploying and operating OpenShift.
+          .text-center
+            %h3
+              Then OpenShift Commons is the right place for you.
+
+            %h4
+              %a{:href => "#join"} Ready to Join?     
+    / End Info title
+    / End content info - Grey Section
